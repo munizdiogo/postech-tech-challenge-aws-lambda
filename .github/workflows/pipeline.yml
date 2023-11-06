@@ -27,6 +27,4 @@ jobs:
               run: |
                   cd functions/funcaoBasicaDeTeste
                   zip funcaoBasicaDeTeste.zip lambda_function.py
-                  aws lambda update-function-code --function-name funcaoBasicaDeTeste --zip-file fileb://./funcaoBasicaDeTeste.zip
-              env:
-                  AWS_EC2_METADATA_DISABLED: true
+                  aws lambda update-function-code --function-name funcaoBasicaDeTeste --zip-file fileb://./funcaoBasicaDeTeste.zip --region ${{ secrets.AWS_DEFAULT_REGION_NAME }}
