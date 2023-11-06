@@ -27,4 +27,4 @@ jobs:
         run: |
           cd functions/funcaoBasicaDeTeste
           zip funcaoBasicaDeTeste.zip lambda_function.py
-          aws lambda update-function-code --function-name funcaoBasicaDeTeste --zip-file fileb://functions/funcaoBasicaDeTeste/funcaoBasicaDeTeste.zip
+          aws lambda update-function-code --function-name funcaoBasicaDeTeste --zip-file fileb://funcaoBasicaDeTeste.zip
