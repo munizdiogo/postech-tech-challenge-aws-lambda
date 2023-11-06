@@ -28,7 +28,7 @@ jobs:
                   cd functions/criarUsuario
                   zip criarUsuario.zip lambda_criar_usuario.py
                   aws lambda update-function-code --function-name lambdaSignupCognito --zip-file fileb://./criarUsuario.zip --region ${{ secrets.AWS_DEFAULT_REGION_NAME }}
-                  cd ../functions/login
+                  cd ../login
                   zip login.zip lambda_login.py
                   aws lambda update-function-code --function-name lambdaFazerLoginCognito --zip-file fileb://./login.zip --region ${{ secrets.AWS_DEFAULT_REGION_NAME }}
     # test:
