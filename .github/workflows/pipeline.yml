@@ -25,6 +25,6 @@ jobs:
     
       - name: Fazer deploy
         run: |
-          cd lambda_functions/funcaoBasicaDeTeste
-          zip lambda_functions/funcaoBasicaDeTeste/lambda_function.py funcaoBasicaDeTeste.zip
-          aws lambda update-function-code --function-name funcaoBasicaDeTeste --zip-file fileb://lambda_functions/funcaoBasicaDeTeste/funcaoBasicaDeTeste.zip
+          cd functions/funcaoBasicaDeTeste
+          zip functions/funcaoBasicaDeTeste/lambda_function.py funcaoBasicaDeTeste.zip
+          aws lambda update-function-code --function-name funcaoBasicaDeTeste --zip-file fileb://functions/funcaoBasicaDeTeste/funcaoBasicaDeTeste.zip
