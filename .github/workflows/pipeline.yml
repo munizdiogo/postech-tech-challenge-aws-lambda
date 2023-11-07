@@ -26,10 +26,10 @@ jobs:
             - name: Fazer deploy
               run: |
                   cd functions/criarUsuario
-                  zip criarUsuario.zip lambda_criar_usuario.py
+                  zip criarUsuario.zip lambda_function.py
                   aws lambda update-function-code --function-name lambdaSignupCognito --zip-file fileb://./criarUsuario.zip --region ${{ secrets.AWS_DEFAULT_REGION_NAME }}
                   cd ../login
-                  zip login.zip lambda_login.py
+                  zip login.zip lambda_function.py
                   aws lambda update-function-code --function-name lambdaFazerLoginCognito --zip-file fileb://./login.zip --region ${{ secrets.AWS_DEFAULT_REGION_NAME }}
     # test:
     #     # The type of runner that the job will run on
