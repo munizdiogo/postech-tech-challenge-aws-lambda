@@ -30,7 +30,7 @@ jobs:
                   aws lambda update-function-code --function-name lambdaFazerLoginCognito --zip-file fileb://./login.zip --region ${{ secrets.AWS_DEFAULT_REGION_NAME }}
     tests:
         runs-on: ubuntu-latest
-
+        needs: deploy
         steps:
             - name: Checkout
               uses: actions/checkout@v3
