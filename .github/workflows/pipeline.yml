@@ -49,13 +49,13 @@ jobs:
                   aws lambda invoke \
                     --region us-east-1 \
                     --function-name lambdaSignupCognito \
-                    --payload file://functions/criarUsuario/payload.json \
-                    outputfileLambdaSignupCognito.json
+                    --payload file://functions/criarUsuario/payload.txt \
+                    outputfileLambdaSignupCognito.txt
 
             - name: Test lambda function login
               run: |
                   aws lambda invoke \
                    --region us-east-1 \
                    --function-name lambdaFazerLoginCognito \
-                   --payload file://functions/login/payload.json \
+                   --payload file://functions/login/payload.txt \
                    outputfileLambdaFazerLoginCognito.txt
