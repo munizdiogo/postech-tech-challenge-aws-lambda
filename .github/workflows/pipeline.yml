@@ -12,7 +12,7 @@ jobs:
     #         - name: Checkout
     #           uses: actions/checkout@v3
 
-    #         - name: Configurar aws cli
+    #         - name: Configure AWS CLI
     #           run: |
     #               sudo apt install -y awscli
     #               aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -20,7 +20,7 @@ jobs:
     #               aws configure set default_region_name ${{ secrets.AWS_DEFAULT_REGION_NAME }}
     #               aws configure set default_output_format JSON
 
-    #         - name: Fazer deploy
+    #         - name: Deploy updated source code to AWS Lambda
     #           run: |
     #               cd functions/criarUsuario
     #               zip criarUsuario.zip lambda_function.py
@@ -35,7 +35,7 @@ jobs:
             - name: Checkout
               uses: actions/checkout@v3
 
-            - name: Configurar aws cli
+            - name: Configure AWS CLI
               run: |
                   sudo apt install -y awscli
                   aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -44,7 +44,7 @@ jobs:
                   aws configure set default_output_format JSON
                   aws configure set cli-binary-format raw-in-base64-out
 
-            - name: Testar função criar usuário
+            - name: Test lambda function signup
               run: |
                   aws lambda invoke \
                     --region us-east-1 \
@@ -52,7 +52,7 @@ jobs:
                     --payload file://functions/criarUsuario/payload.json \
                     outputfileLambdaSignupCognito.json
 
-            - name: Testar função login
+            - name: Test lambda function login
               run: |
                   aws lambda invoke \
                    --region us-east-1 \
