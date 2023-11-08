@@ -3,9 +3,12 @@ import boto3
 
 def lambda_handler(event, context):
 
-    user_pool_id = 'us-east-1_dnXTz0DGG'
-    client_id = '6k30uhnmuksb8ftd3ed3kib56b'
+    # user_pool_id = 'us-east-1_dnXTz0DGG'
+    user_pool_id = 'us-east-1_bGQ3Ngew1'
 
+    # client_id = '6k30uhnmuksb8ftd3ed3kib56b'
+    client_id = '3o2vd1gmqsmu3jvokkm3eo3erj'
+    
     cognito_client = boto3.client('cognito-idp')
     
 
@@ -24,7 +27,7 @@ def lambda_handler(event, context):
             if 'email' in request_body:
                 email = request_body['email']
         
-        password = 'Postech@2023'
+        password = 'Postech@'+cpf
         username = cpf
     
         
