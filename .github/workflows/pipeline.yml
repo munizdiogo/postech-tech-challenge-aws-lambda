@@ -6,28 +6,28 @@ on:
     workflow_dispatch:
 
 jobs:
-    # deploy:
-    #     runs-on: ubuntu-latest
-    #     steps:
-    #         - name: Checkout
-    #           uses: actions/checkout@v3
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
 
-    #         - name: Configure AWS CLI
-    #           run: |
-    #               sudo apt install -y awscli
-    #               aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }}
-    #               aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-    #               aws configure set default_region_name ${{ secrets.AWS_DEFAULT_REGION_NAME }}
-    #               aws configure set default_output_format JSON
+            - name: Configure AWS CLI
+              run: |
+                  sudo apt install -y awscli
+                  aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }}
+                  aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+                  aws configure set default_region_name ${{ secrets.AWS_DEFAULT_REGION_NAME }}
+                  aws configure set default_output_format JSON
 
-    #         - name: Deploy updated source code to AWS Lambda
-    #           run: |
-    #               cd functions/criarUsuario
-    #               zip criarUsuario.zip lambda_function.py
-    #               aws lambda update-function-code --function-name lambdaSignupCognito --zip-file fileb://./criarUsuario.zip --region ${{ secrets.AWS_DEFAULT_REGION_NAME }}
-    #               cd ../login
-    #               zip login.zip lambda_function.py
-    #               aws lambda update-function-code --function-name lambdaFazerLoginCognito --zip-file fileb://./login.zip --region ${{ secrets.AWS_DEFAULT_REGION_NAME }}
+            - name: Deploy updated source code to AWS Lambda
+              run: |
+                  cd functions/criarUsuario
+                  zip criarUsuario.zip lambda_function.py
+                  aws lambda update-function-code --function-name lambdaSignupCognito --zip-file fileb://./criarUsuario.zip --region ${{ secrets.AWS_DEFAULT_REGION_NAME }}
+                  cd ../login
+                  zip login.zip lambda_function.py
+                  aws lambda update-function-code --function-name lambdaFazerLoginCognito --zip-file fileb://./login.zip --region ${{ secrets.AWS_DEFAULT_REGION_NAME }}
     tests:
         runs-on: ubuntu-latest
 
