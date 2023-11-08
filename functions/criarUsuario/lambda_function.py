@@ -1,3 +1,4 @@
+# Alterado por Rodrigo Carmo
 import json
 import boto3
 
